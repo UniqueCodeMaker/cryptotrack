@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "GeneralSans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BricolageGrotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GeistMono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Dark crypto theme — always dark */
+    --background: 0.105 0.028 263;
+    --foreground: 0.96 0.008 240;
+
+    --card: 0.195 0.038 253;
+    --card-foreground: 0.96 0.008 240;
+
+    --popover: 0.2 0.04 253;
+    --popover-foreground: 0.96 0.008 240;
+
+    --primary: 0.75 0.14 178;
+    --primary-foreground: 0.105 0.028 263;
+
+    --secondary: 0.195 0.038 253;
+    --secondary-foreground: 0.68 0.022 225;
+
+    --muted: 0.16 0.03 255;
+    --muted-foreground: 0.52 0.015 240;
+
+    --accent: 0.75 0.14 178;
+    --accent-foreground: 0.105 0.028 263;
+
+    --destructive: 0.63 0.24 25;
+    --destructive-foreground: 0.96 0.008 240;
+
+    --success: 0.72 0.2 145;
+    --success-foreground: 0.96 0.008 240;
+
+    --warning: 0.78 0.17 55;
+    --warning-foreground: 0.1 0.03 260;
+
+    --border: 1 0 0 / 7%;
+    --input: 1 0 0 / 10%;
+    --ring: 0.75 0.14 178;
+
+    --sidebar: 0.155 0.03 255;
+    --sidebar-foreground: 0.96 0.008 240;
+    --sidebar-primary: 0.75 0.14 178;
+    --sidebar-primary-foreground: 0.105 0.028 263;
+    --sidebar-accent: 0.2 0.04 253;
+    --sidebar-accent-foreground: 0.75 0.14 178;
+    --sidebar-border: 1 0 0 / 7%;
+    --sidebar-ring: 0.75 0.14 178;
+
+    --chart-1: 0.75 0.14 178;
+    --chart-2: 0.65 0.2 285;
+    --chart-3: 0.72 0.18 55;
+    --chart-4: 0.6 0.2 240;
+    --chart-5: 0.72 0.2 145;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .card-glow {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--card)) 0%,
+      oklch(0.22 0.045 253) 100%
+    );
+    border-top: 1px solid oklch(1 0 0 / 9%);
+  }
+
+  .sidebar-gradient {
+    background: linear-gradient(
+      180deg,
+      oklch(var(--sidebar)) 0%,
+      oklch(0.13 0.025 260) 100%
+    );
+  }
+
+  .teal-glow {
+    box-shadow: 0 0 20px oklch(0.75 0.14 178 / 20%);
+  }
+
+  .text-teal {
+    color: oklch(var(--primary));
+  }
+
+  .bg-teal {
+    background-color: oklch(var(--primary));
+  }
+
+  .positive {
+    color: oklch(var(--success));
+  }
+
+  .negative {
+    color: oklch(var(--destructive));
+  }
+
+  .font-mono {
+    font-family: "GeistMono", monospace;
+  }
+}
